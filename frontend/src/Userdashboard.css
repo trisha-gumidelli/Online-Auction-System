@@ -1,0 +1,419 @@
+body, html{
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  /* height: 100%; */
+}
+
+
+/* Profile headings */
+.profile-header {
+  text-align: left;
+  margin: 20px 0;
+}
+
+/* Reusing the close-btn style */
+.close-btn {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff7f00, #ff5722);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 50px; 
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 127, 0, 0.3);
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin: 1.5rem auto 0;
+  display: block;
+}
+
+.close-btn:hover {
+  background: rgb(242, 161, 40);
+  transform: scale(1.05);
+}
+
+
+/* Make sure this is present or added */
+.dashboard-card {
+  position: relative;
+  background: linear-gradient(135deg, #fff7e6 0%, #ffe0c3 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid #ffb366;
+  box-shadow: 0 12px 36px rgba(255, 107, 0, 0.13), 0 2px 16px #ffd699;
+  border-radius: 16px;
+  max-width: 600px;
+  margin: 0;
+  padding: 30px;
+  text-align: center;
+  color: #333;
+  height: 45vh;
+  animation: floatCard 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes floatCard {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-12px); }
+}
+
+
+/* .dashboard-wrapper {
+  /* min-height: 100vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem; 
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+ 
+
+.dashboard-main {
+  display: flex;
+  min-height: 100vh;
+  background-color: #fff;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+} */
+
+
+.dashboard-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-main {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  /* margin-left: -20px;
+  margin-top: -20px;
+  margin-right: -10px; */
+}
+
+.dashboard-heading {
+  font-size: 2.8rem;
+  color: #f57c00;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-user {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.dashboard-message {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 1rem;}
+
+/* Sidebar styles */
+.sidebar-left {
+  width: 250px;
+  background-color: rgba(249, 243, 243, 0.591);
+  padding: 30px 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* height: 100vh; */
+  /* box-sizing: border-box; */
+}
+
+.sidebar-right {
+  flex: 1;
+  background: #fffdf6;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent double scroll */
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+.scroll-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+}
+
+
+.username {
+  color: #000;        /* makes it black */
+  font-weight: 600;   /* makes it a bit bold */
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.profile-image {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.image-placeholder {
+  width: 100px;
+  height: 100px;
+  background-color: #ddd;
+  border-radius: 50%;
+  font-size: 32px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+.image-placeholder,
+.preview-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: #555;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+/* Hover menu on image */
+.hover-options {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profile-image:hover .hover-options {
+  opacity: 1;
+}
+
+.hover-btn {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  padding: 3px 10px;
+  margin: 5px;
+  border-radius: 2px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #000;
+  transition: background 0.2s ease;
+}
+
+.hover-btn:hover {
+  background-color: #ffa94d;
+}
+
+/* Modal preview */
+.image-modal {
+  position: fixed;
+  /* top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; */
+  inset: 0; /* shorthand for top, right, bottom, left */
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  overflow: hidden; /* 🔥 prevents scrollbars */
+
+}
+
+.image-modal-content {
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-modal-content img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  background: none;
+  color: #ff7f00;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: none;
+  transition: color 0.2s;
+}
+.close-modal.go-back-btn:hover {
+  color: #d35400;
+  background: none;
+}
+
+.profile-image:hover .hover-text {
+  opacity: 1;
+}
+.preview-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.change-image {
+  font-size: 12px;
+  margin-top: 8px;
+  color: #eee;
+}
+
+.username {
+  margin: 15px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.sidebar-buttons button {
+  width: 100%;
+  padding: 10px 0;
+  margin: 6px 0;
+  background-color: #f98b16;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-buttons button:hover {
+  background-color: #ffc078;
+}
+
+
+.charts-section {
+  background: #fff;
+  padding: 20px;
+  /* border-radius: 16px; */
+  /* box-shadow: 0 4px 12px rgba(0,0,0,0.1); */
+  margin-left: 20px;
+  width: 100%;
+  max-width: 850px;
+  color: #393939;
+}
+
+.charts-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.chart-card {
+  background: #fefefe;
+  border-radius: 12px;
+  padding: 10px;
+  flex: 1 1 300px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+
+
+.crop-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.crop-modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.crop-modal-content h3 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.ReactCrop {
+  max-width: 100%;
+  max-height: 70vh;
+  margin-bottom: 20px;
+}
+
+.crop-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.crop-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.crop-buttons button:first-child {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.crop-buttons button:last-child {
+  background-color: #f57c1f;
+  color: white;
+}
+
+.crop-buttons button:hover {
+  opacity: 0.9;
+}
+
+/* --- My Bids Section Styles --- */
+/* Removed My Bids section styles: .my-bids-list, .my-bid-card, .my-bid-img-wrap, .my-bid-img, .my-bid-info, .outbid-notification, .increase-bid-form, and related media queries. These are now in MyBids.css. */
